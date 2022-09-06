@@ -25,6 +25,16 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.css') }}" rel="stylesheet">
 
+    <style>
+        .login_background{
+            background-image: url('assets/img/olympic.jpg');
+            width: 100%;
+            height: 100%;
+            background-position: center;
+
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -49,7 +59,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid @guest  login_background }} @endguest">
                     <br>
                     @if (Auth::check())
                         <!-- Page Heading -->
