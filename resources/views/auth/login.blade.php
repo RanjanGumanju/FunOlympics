@@ -19,14 +19,15 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Fun Olympics Games 2022</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">FunOlympics Games 2022</h1>
                                     </div>
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
                                             <input id="email" type="email"
                                                 class="form-control @error('email') is-invalid @enderror" name="email"
-                                                value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                value="{{ old('email') }}" required autocomplete="email" autofocus
+                                                placeholder="Email">
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -37,7 +38,8 @@
                                         <div class="form-group">
                                             <input id="password" type="password"
                                                 class="form-control @error('password') is-invalid @enderror" name="password"
-                                                required autocomplete="current-password">
+                                                required autocomplete="current-password" autofocus
+                                                placeholder="Password">
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
