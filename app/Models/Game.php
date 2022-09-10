@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cohensive\Embed\Facades\Embed;
 
 class Game extends Model
 {
@@ -20,5 +21,16 @@ class Game extends Model
     public function user()
     {
        return $this->belongsTo(User::class);
+    }
+
+    public function getVideoHtmlAttribute()
+    {
+        $embed = Embed::make($this->video_url)->parseUrl();
+
+        if (!$embed)
+            return '';
+
+        $embed->setAttribute(['width' => 350]);
+        return $embed->getHtml();
     }
 }

@@ -1,5 +1,28 @@
 <?php
 
+function YoutubeID($url)
+{
+    if(strlen($url) > 11)
+    {
+        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+        {
+            return $match[1];
+        }
+        else
+            return false;
+    }
+
+    return $url;
+}
+
+function convertYoutube($string) {
+    return preg_replace(
+        "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+        "<iframe src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>",
+        $string
+    );
+}
+
 
 function country_list()
 {

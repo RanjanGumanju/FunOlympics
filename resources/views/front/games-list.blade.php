@@ -7,10 +7,16 @@
             @foreach ($games as $game)
                 <div class=" col-sm-6 col-lg-4 ">
                     <div class="property-box">
-                        <a href="property.html">
+                        <a href="{{ route('front.live.match.detail',$game->id) }}">
                             <div class="img">
-                                <img src="{{ asset('assets/uploads/' . $game->image) }}" alt=""
+                                @auth
+                                {!! $game->video_html !!}
+                                @else
+                                 <img src="{{ asset('assets/uploads/' . $game->image) }}" alt=""
                                     class="img-fluid">
+                                @endauth
+
+                               
                             </div>
                         </a>
                         <div class="new">

@@ -15,7 +15,8 @@
 </head>
 
 <body>
-    <div class="container-fluid bg">
+    {{-- {{ dd(request()->segment(1)); }} --}}
+    <div class="container-fluid {{ request()->segment(1)==null?'bg':'' }}">
         @include('front.layouts.partials.header')
         @yield('banner')
     </div>

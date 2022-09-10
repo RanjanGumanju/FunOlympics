@@ -23,6 +23,15 @@ class FrontController extends Controller
         return view('front.live-match', compact('games'));
     }
 
+    public function liveMatchDetail($id)
+    {
+        $game = Game::findOrFail($id);
+        // dd($game);
+
+        return view('front.live-match-detail', compact('game'));
+        
+    }
+
     public function newsList()
     {
         $news = News::latest()->get();
