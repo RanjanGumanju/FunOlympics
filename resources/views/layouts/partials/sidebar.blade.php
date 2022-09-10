@@ -72,13 +72,29 @@
             </div>
         </div>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
+            aria-expanded="true" aria-controls="collapseNews">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>News</span>
+        </a>
+        <div id="collapseNews" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
+                <a class="collapse-item" href="{{ route('news.create') }}">Create</a>
+                <a class="collapse-item" href="{{ route('news.index') }}">List</a>
+            </div>
+        </div>
+    </li>
     @endrole
    
     @role('user')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.games.index') }}">
             <i class="fas fa-fw fa-gamepad"></i>
-            <span>Games</span></a>
+            <span>Live Matching Games</span></a>
     </li>
 
     <li class="nav-item">
@@ -87,11 +103,11 @@
             <span>News</span></a>
     </li>    
    
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-eye"></i>
             <span>Live Matching</span></a>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
         <a class="nav-link" href="tables.html">
