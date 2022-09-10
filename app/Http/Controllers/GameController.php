@@ -112,6 +112,7 @@ class GameController extends Controller
 
         ]);
         $data= $request->all();
+        // $data['video_url']=YoutubeID($request->video_url);
         if($request->file('image')){
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
