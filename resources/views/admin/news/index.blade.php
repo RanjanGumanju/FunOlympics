@@ -6,7 +6,7 @@
             <div class="mt-2">
                 @include('layouts.partials.messages')
             </div>
-            <a href="{{ route('games.create') }}" class="btn btn-primary btn-sm float-right">Add Game</a>
+            <a href="{{ route('news.create') }}" class="btn btn-primary btn-sm float-right">Add News</a>
             {{-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> --}}
         </div>
         <div class="card-body">
@@ -16,7 +16,6 @@
                         <tr>
                             <th scope="col" width="1%">#</th>
                             <th scope="col" width="5%">Title</th>
-                            <th scope="col" width="10%">Video URL</th>
                             {{-- <th scope="col" width="10%">Username</th> --}}
                             <th scope="col" width="10%">Image</th>
 
@@ -25,24 +24,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($games as $i => $game)
+                        @foreach ($news as $i => $new)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $game->title }}</td>
-                                <td>{{ $game->video_url }}</td>
-                                <td> <img src="{{asset('assets/uploads/'.$game->image)}}" width="50%;" height="20%;" alt="image">
+                                <td>{{ $new->title }}</td>
+                                <td> <img src="{{asset('assets/uploads/'.$new->image)}}" width="70%;" height="50%;;" alt="image">
                                               
                                 </td>
-                                <td>{{ $game->description }}</td>
+                                <td>{{ $new->description }}</td>
 
                                 <td>
-                                    <a class="btn btn-info" href="{{ route('games.show', $game->id) }}">Show</a>
+                                    <a class="btn btn-info" href="{{ route('news.show', $new->id) }}">Show</a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ route('games.edit', $game->id) }}">Edit</a>
+                                    <a class="btn btn-primary" href="{{ route('news.edit', $new->id) }}">Edit</a>
                                 </td>
                                 <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['games.destroy', $game->id], 'style' => 'display:inline']) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['news.destroy', $new->id], 'style' => 'display:inline']) !!}
                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                     {!! Form::close() !!}
 
@@ -53,7 +51,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex">
-                    {!! $games->links() !!}
+                    {!! $news->links() !!}
                 </div>
             </div>
         </div>

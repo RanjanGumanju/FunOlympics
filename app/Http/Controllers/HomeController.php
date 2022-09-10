@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         $user=Auth::user();
         if($user->hasRole('user')){
-            return redirect()->route('user.games.index');
+            return redirect()->route('front.index');
 
         }
         // dd($user->getRoleClass()->toArray());

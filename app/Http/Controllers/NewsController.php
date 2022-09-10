@@ -2,24 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class GameController extends Controller
+class NewsController extends Controller
 {
-  /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    function __construct()
-    {
-        //  $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','show']]);
-        //  $this->middleware('permission:product-create', ['only' => ['create','store']]);
-        //  $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
-        //  $this->middleware('permission:product-delete', ['only' => ['destroy']]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +15,8 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = Game::latest()->paginate(5);
-        return view('admin.games.index',compact('games'))
+        $news = News::latest()->paginate(5);
+        return view('admin.news.index',compact('news'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     
@@ -39,7 +27,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('admin.games.create');
+        return view('admin.news.create');
     }
     
     /**
@@ -53,7 +41,7 @@ class GameController extends Controller
         request()->validate([
             'title' => 'required',
             'description' => 'required',
-            'video_url' => 'required',
+            // 'video_url' => 'required',
 
         ]);
         // dd($request->all());
@@ -62,80 +50,77 @@ class GameController extends Controller
         $insert['user_id']=Auth::user()->id;
 
            if($request->file('image')){
-           
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move(public_path('assets/uploads/'), $filename);
             $insert['image'] = $filename;
         }
-        Game::create($insert);
+        News::create($insert);
     
-        return redirect()->route('games.index')
-                        ->with('success','Game created successfully.');
+        return redirect()->route('news.index')
+                        ->with('success','News created successfully.');
     }
     
     /**
      * Display the specified resource.
      *
-     * @param  \App\Game  $game
+     * @param  \App\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show(News $News)
     {
-        return view('admin.games.show',compact('game'));
+        return view('admin.news.show',compact('News'));
     }
     
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Game  $game
+     * @param  \App\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
+    public function edit(News $news)
     {
-        return view('admin.games.edit',compact('game'));
+        return view('admin.news.edit',compact('news'));
     }
     
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Game  $game
+     * @param  \App\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Game $game)
+    public function update(Request $request, News $News)
     {
         request()->validate([
             'title' => 'required',
             'description' => 'required',
-            'video_url' => 'required',
+            // 'video_url' => 'required',
 
         ]);
-        $data= $request->all();
+    
+        $News->update($request->all());
         if($request->file('image')){
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('assets/uploads/'), $filename);
-            $data['image'] = $filename;
+            $file->move(public_path('assets/img/'), $filename);
+            $News['image'] = $filename;
         }
-    
-        $game->update($data);
-        
-        return redirect()->route('games.index')
-                        ->with('success','Game updated successfully');
+        return redirect()->route('news.index')
+                        ->with('success','News updated successfully');
     }
     
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Game  $game
+     * @param  \App\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Game $game)
+    public function destroy(News $News)
     {
-        $game->delete();
+        $News->delete();
     
-        return redirect()->route('games.index')
-                        ->with('success','Game deleted successfully');
+        return redirect()->route('news.index')
+                        ->with('success','News deleted successfully');
     }
 }

@@ -14,4 +14,15 @@ class GameController extends Controller
         $games =Game::all();
         return view('user.game.index',compact('games'));
     }
+
+    public function show($id)
+    {
+        # code...
+        $game =Game::findOrFail($id);
+        // dd($game);
+
+
+        return view('user.game.show',compact('game'));
+
+    }
 }
