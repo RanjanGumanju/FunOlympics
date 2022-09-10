@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\FrontController::class, 'index'])->name('front.index');
-Route::get('/news-list', [App\Http\Controllers\FrontController::class, 'newsList'])->name('front.news12');
+Route::get('/news-list', [App\Http\Controllers\FrontController::class, 'newsList'])->name('front.news');
 Route::get('/live-match', [App\Http\Controllers\FrontController::class, 'liveMatching'])->name('front.live.match');
 
 

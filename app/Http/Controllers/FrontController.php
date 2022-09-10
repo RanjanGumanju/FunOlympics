@@ -26,7 +26,7 @@ class FrontController extends Controller
     public function newsList()
     {
         $news = News::latest()->get();
-        dd('asd');
+        // dd('asd');
         return view('front.news', compact('news'));
     }
 }
