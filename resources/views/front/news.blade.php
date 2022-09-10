@@ -1,5 +1,5 @@
 @extends('front.master')
 
 @section('content')
-        @include('front.news')
+        @include('front.news-list')
 @endsection

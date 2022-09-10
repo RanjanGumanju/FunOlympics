@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    
+    @include('front.news-list')
 
     @include('front.games-list')
-   
 @endsection
