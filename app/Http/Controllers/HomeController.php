@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
+use App\Models\Game;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,8 +33,12 @@ class HomeController extends Controller
             return redirect()->route('front.index');
 
         }
+        $data['users']=User::role('user')->count();
+        $data['games']=Game::count();
+        $data['news']=News::count();
+
         // dd($user->getRoleClass()->toArray());
-        
-        return view('dashboard');
+        // dd($data);
+        return view('dashboard',$data);
     }
 }

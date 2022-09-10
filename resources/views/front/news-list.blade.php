@@ -9,7 +9,7 @@
 
                     <div class="property-box  property-box-1 d-flex ">
                         <div class="img-box" style="overflow: hidden;">
-                            <a href="property.html">
+                            <a href="{{ route('front.news.detail',$new->id) }}">
                                 <img src="{{ asset('assets/uploads/' . $new->image) }}" alt="" class="img-fluid"
                                     style="flex-basis:20% ;">
                             </a>
@@ -17,13 +17,13 @@
                         <div class="caption pt-3">
                             <h6 class="pt-2">{{ $new->title }}</h6>
                             <span class="location"> <img src="./assets/img/Iconly-Bulk-Location.svg" alt=""
-                                    class="svg-img-color"> {!! $new->description !!}</span> <br>
+                                    class="svg-img-color"> {!! $new->description_excerpt !!}</span> <br>
 
                             <div class="price d-flex justify-content-between">
-                                <button class="property-price d-flex">
+                                <a class="property-price d-flex" href="{{ route('front.news.detail',$new->id) }}">
 
                                     <h5> Read More..</h5>
-                                </button>
+                                </a>
 
                             </div>
                         </div>

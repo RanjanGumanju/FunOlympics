@@ -33,7 +33,7 @@
                                 <td> <img src="{{asset('assets/uploads/'.$game->image)}}" width="50%;" height="20%;" alt="image">
                                               
                                 </td>
-                                <td>{{ $game->description }}</td>
+                                <td>{{ $game->description_excerpt }}</td>
 
                                 <td>
                                     <a class="btn btn-info" href="{{ route('games.show', $game->id) }}">Show</a>
@@ -52,10 +52,12 @@
 
                     </tbody>
                 </table>
-                <div class="d-flex">
-                    {!! $games->links() !!}
-                </div>
+                
             </div>
+            
         </div>
+        {{-- <div class="d-flex"> --}}
+            {{-- {!! $games->links() !!} --}}
+            {{-- </div> --}}
     </div>
 @endsection

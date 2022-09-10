@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cohensive\Embed\Facades\Embed;
+use Str;
 
 class Game extends Model
 {
@@ -30,7 +31,12 @@ class Game extends Model
         if (!$embed)
             return '';
 
-        $embed->setAttribute(['width' => 350]);
+        $embed->setAttribute(['width' => 750]);
         return $embed->getHtml();
+    }
+
+    public function getDescriptionExcerptAttribute()
+    {
+        return Str::words($this->description, '20');
     }
 }
