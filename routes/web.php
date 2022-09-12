@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -38,7 +39,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('games', GameController::class);    
+    Route::resource('games', GameController::class);   
+    Route::resource('highlights', HighlightController::class);   
     Route::resource('news', NewsController::class);
 
 

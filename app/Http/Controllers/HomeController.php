@@ -30,7 +30,7 @@ class HomeController extends Controller
 
         $user=Auth::user();
         if($user->hasRole('user')){
-            return redirect()->route('front.index');
+            return redirect()->route('front.live.match');
 
         }
         $data['users']=User::role('user')->count();

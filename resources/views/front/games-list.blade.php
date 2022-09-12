@@ -1,7 +1,7 @@
-<section class="similar">
+<section class="similar" >
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between py-5">
-            <h1>Live Match</h1>
+        <div class="d-flex align-items-center justify-content-center py-5" style="color: white">
+            <h1 class="text-white">Live Match</h1>
         </div>
         <div class="row  gy-5">
 

@@ -1,11 +1,11 @@
-<section class="tranding mt-5">
+<section class="tranding">
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between py-5">
-            <h1>News</h1>
+        <div class="d-flex align-items-center justify-content-center py-5">
+            <h1 class="text-white">Recent News</h1>
         </div>
         <div class="row gy-4">
             @foreach ($news as $new)
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-6 col-lg-4">
 
                     <div class="property-box  property-box-1 d-flex ">
                         <div class="img-box" style="overflow: hidden;">

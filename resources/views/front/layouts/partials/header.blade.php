@@ -1,4 +1,4 @@
-<header>
+<header >
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container-fluid px-5">
             <a class="navbar-brand" href="{{ route('front.index') }}"><img src="{{ asset('assets/img/header_logo.svg') }}" alt=""
@@ -26,7 +26,7 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="nav-link  " aria-current="page" href="{{ route('front.index') }}">Home</a>
+                            {{-- <a class="nav-link  " aria-current="page" href="{{ route('front.index') }}">Home</a> --}}
                         </li>
 
                         <li class="nav-item">
