@@ -5,7 +5,7 @@
         </div>
         <div class="row gy-4">
             @foreach ($news as $new)
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-6">
 
                     <div class="property-box  property-box-1 d-flex ">
                         <div class="img-box" style="overflow: hidden;">
@@ -16,8 +16,7 @@
                         </div>
                         <div class="caption pt-3">
                             <h6 class="pt-2">{{ $new->title }}</h6>
-                            <span class="location"> <img src="./assets/img/Iconly-Bulk-Location.svg" alt=""
-                                    class="svg-img-color"> {!! $new->description_excerpt !!}</span> <br>
+                            <span class="location text-white" style="font-weight:200px"> {!! $new->description_excerpt !!}</span> <br>
 
                             <div class="price d-flex justify-content-between">
                                 <a class="property-price d-flex" href="{{ route('front.news.detail',$new->id) }}">

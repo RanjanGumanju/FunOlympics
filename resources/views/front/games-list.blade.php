@@ -26,8 +26,7 @@
                         </div>
                         <div class="caption pt-3">
                             <h6 class="pt-2">{{ $game->title }}</h6>
-                            <span class="location"> <img src="./assets/img/Iconly-Bulk-Location.svg" alt=""
-                                    class="svg-img-color"> {!! $game->description_excerpt !!}</span> <br>
+                            <span class="location text-white"> {!! $game->description_excerpt !!}</span> <br>
 
 
                             <div class="price d-flex justify-content-between">

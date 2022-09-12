@@ -11,7 +11,7 @@ class FrontController extends Controller
     public function index()
     {
         //test
-        $news = News::take(3)->get();
+        $news = News::take(2)->get();
         $games = Game::take(3)->latest()->get();
 
         return view('front.welcome', compact('news', 'games'));
