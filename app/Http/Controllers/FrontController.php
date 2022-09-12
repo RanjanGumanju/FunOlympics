@@ -10,6 +10,7 @@ class FrontController extends Controller
 {
     public function index()
     {
+        //test
         $news = News::take(3)->get();
         $games = Game::take(3)->latest()->get();
 
