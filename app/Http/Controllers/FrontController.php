@@ -10,7 +10,7 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $news = News::take(2)->get();
+        $news = News::take(3)->get();
         $games = Game::take(3)->latest()->get();
 
         return view('front.welcome', compact('news', 'games'));
@@ -26,8 +26,6 @@ class FrontController extends Controller
     public function liveMatchDetail($id)
     {
         $game = Game::findOrFail($id);
-        // dd($game);
-
         return view('front.live-match-detail', compact('game'));
         
     }
@@ -35,7 +33,12 @@ class FrontController extends Controller
     public function newsList()
     {
         $news = News::latest()->get();
-        // dd('asd');
         return view('front.news', compact('news'));
+    }
+
+    public function newsDetail($id)
+    {
+        $new = News::findOrFail($id);
+        return view('front.news-detail', compact('new'));
     }
 }

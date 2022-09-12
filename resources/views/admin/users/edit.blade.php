@@ -22,6 +22,38 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
+                        <strong>Gender:</strong>
+                        {!! Form::select('gender', ['1'=>'Male','2'=>'Female','3'=>'Others'],$user->gender, array('class' => 'form-control')) !!}
+
+                    </div>
+                    @if ($errors->has('gender'))
+                        <span class="text-danger text-left">{{ $errors->first('gender') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Country:</strong>
+                        {!! Form::select('country', country_list(),$user->country, array('class' => 'form-control')) !!}
+
+                    </div>
+                    @if ($errors->has('country'))
+                        <span class="text-danger text-left">{{ $errors->first('country') }}</span>
+                    @endif
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Date of Birth:</strong>
+                        {!! Form::date('date_of_birth','',[], array('class' => 'form-control')) !!}
+
+                    </div>
+                    @if ($errors->has('date_of_birth'))
+                        <span class="text-danger text-left">{{ $errors->first('date_of_birth') }}</span>
+                    @endif
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
                         <strong>Password:</strong>
                         {!! Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) !!}
                     </div>

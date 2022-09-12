@@ -1,15 +1,15 @@
-<section class="tranding mt-5">
+<section class="tranding">
     <div class="container">
-        <div class="d-flex align-items-center justify-content-between py-5">
-            <h1>News</h1>
+        <div class="d-flex align-items-center justify-content-center py-5">
+            <h1 class="text-white">Recent News</h1>
         </div>
         <div class="row gy-4">
             @foreach ($news as $new)
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-6 col-lg-4">
 
                     <div class="property-box  property-box-1 d-flex ">
                         <div class="img-box" style="overflow: hidden;">
-                            <a href="property.html">
+                            <a href="{{ route('front.news.detail',$new->id) }}">
                                 <img src="{{ asset('assets/uploads/' . $new->image) }}" alt="" class="img-fluid"
                                     style="flex-basis:20% ;">
                             </a>
@@ -17,13 +17,13 @@
                         <div class="caption pt-3">
                             <h6 class="pt-2">{{ $new->title }}</h6>
                             <span class="location"> <img src="./assets/img/Iconly-Bulk-Location.svg" alt=""
-                                    class="svg-img-color"> {!! $new->description !!}</span> <br>
+                                    class="svg-img-color"> {!! $new->description_excerpt !!}</span> <br>
 
                             <div class="price d-flex justify-content-between">
-                                <button class="property-price d-flex">
+                                <a class="property-price d-flex" href="{{ route('front.news.detail',$new->id) }}">
 
                                     <h5> Read More..</h5>
-                                </button>
+                                </a>
 
                             </div>
                         </div>

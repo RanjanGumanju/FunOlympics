@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Cohensive\Embed\Facades\Embed;
 use Str;
 
-class Game extends Model
+class Highlight extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'user_id',
         'title',

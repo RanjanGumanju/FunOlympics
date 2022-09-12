@@ -74,6 +74,22 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHighList"
+            aria-expanded="true" aria-controls="collapseHighList">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Highlights</span>
+        </a>
+        <div id="collapseHighList" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
+                <a class="collapse-item" href="{{ route('highlights.create') }}">Create</a>
+                <a class="collapse-item" href="{{ route('highlights.index') }}">List</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
             aria-expanded="true" aria-controls="collapseNews">
             <i class="fas fa-fw fa-wrench"></i>

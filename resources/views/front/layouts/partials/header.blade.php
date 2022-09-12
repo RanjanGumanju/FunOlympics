@@ -1,4 +1,4 @@
-<header>
+<header >
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container-fluid px-5">
             <a class="navbar-brand" href="{{ route('front.index') }}"><img src="{{ asset('assets/img/header_logo.svg') }}" alt=""
@@ -26,7 +26,7 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="nav-link  " aria-current="page" href="{{ route('front.index') }}">Home</a>
+                            {{-- <a class="nav-link  " aria-current="page" href="{{ route('front.index') }}">Home</a> --}}
                         </li>
 
                         <li class="nav-item">
@@ -34,7 +34,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link  " aria-current="page" href="sellhome.html">Highlights</a>
+                            <a class="nav-link  " aria-current="page" href="#">Highlights</a>
                         </li>
 
                         <li class="nav-item">
@@ -42,7 +42,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link  " aria-current="page" href="sellhome.html">Blog</a>
+                            <a class="nav-link  " aria-current="page" href="#">Blog</a>
                         </li>
 
                         <li class="nav-item">
@@ -53,10 +53,13 @@
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    @if (Auth::user()->hasRole('admin'))
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Dashboard
                                     </a>
+                                    @endif
+                                    
                                     <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile

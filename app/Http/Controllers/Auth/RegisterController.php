@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
@@ -64,14 +67,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
         $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'gender' => $data['gender'],
+            'country' => $data['country'],
+            'date_of_birth' => $data['date_of_birth'],
             'password' => Hash::make($data['password']),
         ]);
 
         $user->assignRole('user');
         return $user;
+    }
+
+    protected function registered(Request $request, $user)
+    {
+      
+        $details = [
+            'title' => 'Dear '.$user->name,
+            'body' => 'You have been registered'
+        ];
+       
+        \Mail::to($user->email)->send(new \App\Mail\SendMail($details));
+
+        // Session::flash('success', 'Succesfully registered'); 
+        // return redirect()->back()->with('message','User registered Successfully');
+        // dd($user);
     }
 }
