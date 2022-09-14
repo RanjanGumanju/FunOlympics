@@ -25,6 +25,7 @@ Route::get('/news-list/{id}', [App\Http\Controllers\FrontController::class, 'new
 Route::get('/live-match', [App\Http\Controllers\FrontController::class, 'liveMatching'])->name('front.live.match');
 Route::get('/live-match/{id}', [App\Http\Controllers\FrontController::class, 'liveMatchDetail'])->name('front.live.match.detail');
 
+Route::get('/high-lights', [App\Http\Controllers\FrontController::class, 'highlights'])->name('high-lights.index');
 
 
 // Route::get('/', function () {

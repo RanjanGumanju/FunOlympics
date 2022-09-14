@@ -34,7 +34,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link  " aria-current="page" href="#">Highlights</a>
+                            <a class="nav-link  " aria-current="page" href="{{ route('high-lights.index') }}">Highlights</a>
                         </li>
 
                         <li class="nav-item">

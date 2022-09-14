@@ -42,4 +42,11 @@ class FrontController extends Controller
         $new = News::findOrFail($id);
         return view('front.news-detail', compact('new'));
     }
+
+    public function highlights()
+    {
+        $news = News::latest()->get();
+        return view('front.highlights', compact('news'));
+    }
+
 }
