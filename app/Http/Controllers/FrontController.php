@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Highlight;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -45,8 +46,9 @@ class FrontController extends Controller
 
     public function highlights()
     {
-        $news = News::latest()->get();
-        return view('front.highlights', compact('news'));
+        $highlights = Highlight::latest()->get();
+        // dd($highlights);
+        return view('front.highlights', compact('highlights'));
     }
 
 }
