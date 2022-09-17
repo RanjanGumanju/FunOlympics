@@ -165,26 +165,18 @@
 
                     </div>
 
-                    <div class="property-detail mt-5 bg-white">
+                    <div class="property-detail mt-5 bg-dark">
                         <div class="container">
-                            <div class="row mt-4">
-                                <div class="col-sm-3">
-                                    <h5 class="text-dark">description</h5>
-                                </div>
-                                <div class="col-sm-9 ">
-                                    <p class="description">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="description text-white">
                                         {!! $game->description !!}
                                     </p>
-                                    {{-- <a href="" class="see">see more</a> --}}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
 
                 <div class="d-flex flex-column col-lg-4 display-hide-mobile1  pb-cmnt-container">
 

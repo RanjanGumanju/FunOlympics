@@ -20,7 +20,7 @@
                             {{-- <th scope="col" width="10%">Username</th> --}}
                             <th scope="col" width="10%">Image</th>
 
-                            <th scope="col" width="10%">Description</th>
+                            {{-- <th scope="col" width="10%">Description</th> --}}
                             <th scope="col" width="1%" colspan="3">Action</th>
                         </tr>
                     </thead>
@@ -33,7 +33,7 @@
                                 <td> <img src="{{asset('assets/uploads/'.$game->image)}}" width="50%;" height="20%;" alt="image">
                                               
                                 </td>
-                                <td>{{ $game->description_excerpt }}</td>
+                                {{-- <td>{!! \Illuminate\Support\Str::limit($game->description_excerpt, 150, $end='...')  !!}</td> --}}
 
                                 <td>
                                     <a class="btn btn-info" href="{{ route('games.show', $game->id) }}">Show</a>
