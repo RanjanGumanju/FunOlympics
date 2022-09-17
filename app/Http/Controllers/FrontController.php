@@ -30,6 +30,7 @@ class FrontController extends Controller
     public function liveMatchDetail($id)
     {
         $game = Game::findOrFail($id);
+        $game->comments()->delete();
         return view('front.live-match-detail', compact('game'));
     }
 

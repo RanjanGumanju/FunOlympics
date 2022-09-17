@@ -11,8 +11,7 @@
                     <div col="col-lg-6">
                         <div class="media">
                             <div class="media-body">
-                                <iframe src="https://www.youtube.com/embed/5Peo-ivmupE" width="660" height="415"
-                                    frameborder="0" allowfullscreen=""></iframe>
+                                {{ $game->video_html }}
                             </div>
                         </div>
                     </div>

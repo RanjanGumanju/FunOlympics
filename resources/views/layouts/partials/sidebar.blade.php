@@ -1,3 +1,5 @@
+@role('admin')
+
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
@@ -17,7 +19,6 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
 
-    @role('admin')
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -92,7 +93,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
             aria-expanded="true" aria-controls="collapseNews">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-fw fa-newspaper"></i>
             <span>News</span>
         </a>
         <div id="collapseNews" class="collapse" aria-labelledby="headingUtilities"
@@ -104,10 +105,10 @@
             </div>
         </div>
     </li>
-    @endrole
+    
    
-    @role('user')
-    <li class="nav-item">
+    {{-- @role('user') --}}
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('user.games.index') }}">
             <i class="fas fa-fw fa-gamepad"></i>
             <span>Live Matching Games</span></a>
@@ -117,7 +118,7 @@
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-book"></i>
             <span>News</span></a>
-    </li>    
+    </li>     --}}
    
     {{-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
@@ -125,12 +126,12 @@
             <span>Live Matching</span></a>
     </li> --}}
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Athletes</span></a>
-    </li>
-    @endrole
+    </li> --}}
+    {{-- @endrole --}}
 
 
 
@@ -140,3 +141,4 @@
 
 
 </ul>
+@endrole

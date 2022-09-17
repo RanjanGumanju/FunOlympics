@@ -16,9 +16,9 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::latest()->get();
-        return view('admin.news.index',compact('news'));
+        return view('admin.news.index', compact('news'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +28,7 @@ class NewsController extends Controller
     {
         return view('admin.news.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,26 +40,22 @@ class NewsController extends Controller
         request()->validate([
             'title' => 'required',
             'description' => 'required',
-            // 'video_url' => 'required',
-
         ]);
-        // dd($request->all());
-        // $insert=$request->all();
         $insert = $request->except(['_token']);
-        $insert['user_id']=Auth::user()->id;
+        $insert['user_id'] = Auth::user()->id;
 
-           if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('assets/uploads/'), $filename);
             $insert['image'] = $filename;
         }
         News::create($insert);
-    
+
         return redirect()->route('news.index')
-                        ->with('success','News created successfully.');
+            ->with('success', 'News created successfully.');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -68,9 +64,9 @@ class NewsController extends Controller
      */
     public function show(News $News)
     {
-        return view('admin.news.show',compact('News'));
+        return view('admin.news.show', compact('News'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -79,9 +75,9 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        return view('admin.news.edit',compact('news'));
+        return view('admin.news.edit', compact('news'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -89,26 +85,26 @@ class NewsController extends Controller
      * @param  \App\News  $News
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $News)
+    public function update(Request $request, News $news)
     {
-        request()->validate([
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
-            // 'video_url' => 'required',
-
         ]);
-    
-        $News->update($request->all());
-        if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('assets/img/'), $filename);
-            $News['image'] = $filename;
+        $data = $request->except(['_token']);
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('assets/uploads/'), $filename);
+            $data['image'] = $filename;
         }
+
+        $news->update($data);
         return redirect()->route('news.index')
-                        ->with('success','News updated successfully');
+            ->with('success', 'News updated successfully');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -118,8 +114,8 @@ class NewsController extends Controller
     public function destroy(News $News)
     {
         $News->delete();
-    
+
         return redirect()->route('news.index')
-                        ->with('success','News deleted successfully');
+            ->with('success', 'News deleted successfully');
     }
 }

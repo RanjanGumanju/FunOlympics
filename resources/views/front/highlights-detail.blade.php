@@ -66,51 +66,29 @@
 @endsection
 
 @section('content')
-    <section class="property mt-5 ">
-        <div class="container">
-            <div class="row gx-5 gy-5">
-                <div class="d-flex justify-content-between owner-detail my-3">
-                    <div class="title">
-                        <h2>{{ $highlight->title }}</h2>
-                    </div>
-                </div>
-                <div class="col-lg-12  ">
-                    {{-- <div class="row gx-3"> --}}
-                        <div class="media d-flex justify-content-center">
-                            <div class="media-body">
-                                {!! $highlight->video_html !!}
-                                {{-- convertYoutube --}}
-                                {{-- <iframe src="http://www.youtube.com/embed/{{ $highlight->video_url }}" width="660" height="415"
-                                    frameborder="0" allowfullscreen="" sandbox="allow-scripts"></iframe> --}}
-                                {{-- <iframe src="{{ convertYoutube($highlight->video_url) }}" width="660" height="415"
-                                        frameborder="0" allowfullscreen="" sandbox="allow-scripts"></iframe> --}}
+    <section class="adverties-banner mt-5 banner-top">
+        <div class="container banner">
+            <div class="row gx-0 gy-5">
+                <div class="col-lg-5">
+                    <div class="adverties-content">
+                        <div class="advertise-title py-3">
+                            <h1 class="text-dark"> {!! $highlight->title !!}</h1>
+                            <div class="text-dark">
+                                <p>
+                                    {!! $highlight->description !!}
+                                </p>
                             </div>
                         </div>
-
-                    {{-- </div> --}}
-
-                    <div class="property-detail mt-5 bg-white">
-                        <div class="container">
-                            <div class="row mt-4">
-                                <div class="col-sm-3">
-                                    <h5 class="text-dark">Description</h5>
-                                </div>
-                                <div class="col-sm-9 ">
-                                    <p class="description">
-                                        {!! $highlight->description !!}
-                                    </p>
-                                    {{-- <a href="" class="see">see more</a> --}}
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
-
-
-
-
                 </div>
-
+                <div class="col-lg-7">
+                    <div class="adberties-img">
+                        {!! $highlight->video_html !!}
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
     </section>
 @endsection

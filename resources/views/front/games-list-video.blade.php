@@ -10,11 +10,11 @@
             transform: scale(2.8);
         }
 
-        #myVideoWrapper {
+        .myVideoWrapper {
             position: relative;
         }
 
-        #myVideoOverlay {
+        .myVideoOverlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -35,17 +35,11 @@
             @foreach ($games->take(2) as $game)
                 <div class="col-md-6 mb-2 h-50">
                     <div class="card profile-card-1">
-                        <div id="myVideoWrapper">
+                        <div class="myVideoWrapper">
                             {!! $game->video_front_html !!}
-
-                            <div id="myVideoOverlay"></div>
+                            <div class="myVideoOverlay"></div>
                         </div>
-                        {{-- <img src="{{ asset('assets/uploads/' . $item->image) }}" alt="profile-image"
-                        class="profile" /> --}}
-
                         <div class="card-content" style="color: #131313">
-
-                            {{-- <h2>{{ $item->title }}</h3> --}}
                         </div>
                     </div>
                     {{-- <p class="mt-3 w-100 float-left text-center"><strong>Basic Profile Card</strong></p> --}}
@@ -54,9 +48,3 @@
         </div>
     </div>
 </section>
-
-@push('scripts')
-    <script>
-        alert('asd');
-    </script>
-@endpush

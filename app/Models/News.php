@@ -15,5 +15,10 @@ class News extends Model
     {
         return Str::words($this->description, '20');
     }
+
+    public function user()
+    {
+       return $this->belongsTo(User::class);
+    }
     
 }

@@ -36,26 +36,6 @@ body{
     color: #fff;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600&family=Roboto:wght@300;400;500;700&display=swap");
-@font-face {
-  font-family: cora;
-  src: url("./cerafont/Cera Pro Black.ttf");
-}
-
-@font-face {
-  font-family: cora pro;
-  src: url("./cerafont/Cera Pro Black.ttf");
-}
-
-@font-face {
-  font-family: cora-light;
-  src: url("./cerafont/Cera Pro Light.ttf");
-}
-
-@font-face {
-  font-family: cora-medium;
-  src: url("./cerafont/ Medium.otf");
-}
 
 body {
   font-family: Roboto, sans-serif;
@@ -242,7 +222,7 @@ button:focus {
   border: 0;
   border: 1px solid #d5d5d5;
   border-radius: 15px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   padding: 10px 20px;
 }
 
@@ -729,90 +709,6 @@ input[type='password']:focus {
   border: 1px solid #707070 !important;
 }
 
-.emi-box-1 {
-  margin-top: 110px !important;
-}
-
-.emi {
-  border-radius: 20px;
-  padding: 34px 35px;
-  border: 1px solid #E6E6E6;
-}
-
-.emi .result {
-  text-transform: capitalize;
-}
-
-.emi .emi-box {
-  border-radius: 20px;
-  padding: 18px 20px;
-  background-color: #EAF3EE;
-  text-align: center;
-}
-
-.emi .emi-box span {
-  display: block;
-}
-
-.emi h1 {
-  font-size: 40px;
-}
-
-@media (max-width: 768px) {
-  .emi h1 {
-    font-size: 28px !important;
-  }
-}
-
-.emi label {
-  text-transform: capitalize;
-  color: #707070;
-}
-
-.emi .npr h6 {
-  font-size: 18px;
-}
-
-.emi .month {
-  font-size: 15px;
-  padding-right: 27px;
-  text-transform: capitalize;
-  color: #707070;
-}
-
-.emi .form-select {
-  display: block;
-  outline: 0;
-  border: 0;
-  color: #707070;
-  background-color: #f4f4f4;
-  padding: 10px 17px;
-  border-radius: 10px;
-  text-transform: capitalize;
-}
-
-.emi input {
-  display: block;
-  outline: 0;
-  border: 0;
-  color: #707070;
-  background-color: #f4f4f4;
-  padding: 10px 17px;
-  border-radius: 10px;
-  text-transform: capitalize;
-  width: 100%;
-}
-
-.emi input::after {
-  content: "";
-  width: 10%;
-  height: 30px;
-  position: absolute;
-  background-color: red;
-  top: 0;
-  left: 12px;
-  z-index: 888;
-}
 
 select {
   border-radius: 15px !important;
@@ -2827,7 +2723,7 @@ form .form-check-label {
 form .form-control {
   padding: 10px 7px !important;
   border-radius: 20px !important;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 form .form-label {
@@ -2888,7 +2784,7 @@ form h3 {
 }
 
 .property-detail {
-  width: max-content;
+  width: 100%;
   margin-top: 44px !important;
   border-radius: 20px;
   padding: 20px 35px;

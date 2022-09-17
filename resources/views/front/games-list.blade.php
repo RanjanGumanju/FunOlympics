@@ -26,33 +26,25 @@
                         $route = route('front.live.match.detail', $game->id);
                     }
                 @endphp
-                <div class=" col-sm-6 col-lg-4 ">
 
-                    <div class="property-box" style="background: rgb(129 129 133 / 62%);">
-                        {{-- <img src="{{ asset('assets/uploads/' . $game->image) }}" alt="profile-sample1"
-                            class="background" /> --}}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="our-team">
                         <a href="{{ $route }}">
-                            <div class="img">
-                                <img src="{{ asset('assets/uploads/' . $game->image) }}" alt=""
-                                    class="img-fluid">
+                            <div class="picture">
+                                <img class="img-fluid" src="{{ asset('assets/uploads/' . $game->image) }}">
                             </div>
                         </a>
-                        <div class="new">
-                            live
-                        </div>
-                        <div class="caption pt-3">
-                            <h6 class="pt-2">{{ $game->title }}</h6>
-                            <span class="location text-white"> {!! $game->description_excerpt !!}</span> <br>
 
-
-                            <div class="price d-flex justify-content-between">
-                                <a class="property-price d-flex" href="{{ $route }}">
-                                    <h5>Watch</h5>
-                                </a>
-                            </div>
+                        <div class="team-content">
+                            <a href="{{ $route }}">
+                                <h3 class="name text-primary">{{ $game->title }}</h3>
+                            </a>
                         </div>
                     </div>
                 </div>
+
+
+               
             @endforeach
 
 
