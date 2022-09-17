@@ -28,7 +28,7 @@
                 @endphp
                 <div class=" col-sm-6 col-lg-4 ">
 
-                    <div class="property-box" style="background: rgb(15 15 16);">
+                    <div class="property-box" style="background: rgb(129 129 133 / 62%);">
                         {{-- <img src="{{ asset('assets/uploads/' . $game->image) }}" alt="profile-sample1"
                             class="background" /> --}}
                         <a href="{{ $route }}">
