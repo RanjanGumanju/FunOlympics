@@ -71,7 +71,7 @@
         .card {
 
             border: none;
-            box-shadow: 5px 6px 6px 2px #e9ecef;
+            /* box-shadow: 5px 6px 6px 2px #e9ecef; */
             border-radius: 4px;
         }
 
@@ -188,7 +188,7 @@
 
                 <div class="d-flex flex-column col-lg-4 display-hide-mobile1  pb-cmnt-container">
 
-                    <div class="card bg-dark">
+                    <div class="card" style="background-color: #111213e0!important">
 
                         <h5 class="card-header">
                             <div class="card-title">
