@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -29,9 +29,9 @@ class GameController extends Controller
     public function index()
     {
         $games = Game::latest()->get();
-        return view('admin.games.index',compact('games'));
+        return view('admin.games.index', compact('games'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +41,7 @@ class GameController extends Controller
     {
         return view('admin.games.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -59,21 +59,21 @@ class GameController extends Controller
         // dd($request->all());
         // $insert=$request->all();
         $insert = $request->except(['_token']);
-        $insert['user_id']=Auth::user()->id;
+        $insert['user_id'] = Auth::user()->id;
 
-           if($request->file('image')){
-           
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
+        if ($request->file('image')) {
+
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('assets/uploads/'), $filename);
             $insert['image'] = $filename;
         }
         Game::create($insert);
-    
+
         return redirect()->route('games.index')
-                        ->with('success','Game created successfully.');
+            ->with('success', 'Game created successfully.');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -82,9 +82,9 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        return view('admin.games.show',compact('game'));
+        return view('admin.games.show', compact('game'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -93,9 +93,9 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        return view('admin.games.edit',compact('game'));
+        return view('admin.games.edit', compact('game'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -111,21 +111,21 @@ class GameController extends Controller
             'video_url' => 'required',
 
         ]);
-        $data= $request->all();
+        $data = $request->all();
         // $data['video_url']=YoutubeID($request->video_url);
-        if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('assets/uploads/'), $filename);
             $data['image'] = $filename;
         }
-    
+
         $game->update($data);
-        
+
         return redirect()->route('games.index')
-                        ->with('success','Game updated successfully');
+            ->with('success', 'Game updated successfully');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -135,9 +135,9 @@ class GameController extends Controller
     public function destroy(Game $game)
     {
         $game->delete();
-    
+
         return redirect()->route('games.index')
-                        ->with('success','Game deleted successfully');
+            ->with('success', 'Game deleted successfully');
     }
 
     public function postComment(Request $request)
@@ -148,9 +148,17 @@ class GameController extends Controller
         $comment->game_id = $request->game;
         $comment->save();
 
-        if($comment){
+        if ($comment) {
+            $data['user'] = $comment->user->name;
+            $data['comment'] = $request->comment;
+            $data['time'] = $comment->created_at->format('H:i:s');//$comment->created_at;
+
+
+            // dd($data);
+
             return response()->json([
-                'bool'=>true
+                'data' => $data,
+                'bool' => true
             ]);
             // return response()->json(['data'=>$comment]);
 

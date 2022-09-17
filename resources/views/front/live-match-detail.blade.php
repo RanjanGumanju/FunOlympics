@@ -161,7 +161,7 @@
                             <div class="media-body">
                                 {!! $game->video_html !!}
                             </div>
-                        </div>
+                        </div>  
 
                     </div>
 
@@ -185,7 +185,7 @@
                         <h5 class="card-header">
                             <div class="card-title">
                                 Chat Box <span
-                                    class="comment-count float-right btn btn-info text-white">{{ count($game->comments) }}</span>
+                                    class="comment-count float-right btn btn-info text-white">1</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {{-- Total View: <span class="comment-count float-right btn btn-info text-white">1</span> --}}
                             </div>
@@ -193,7 +193,7 @@
 
                         <div class="card-body">
                             <div class="comments scroll">
-                                @if (count($game->comments) > 0)
+                                {{-- @if (count($game->comments) > 0)
                                     @foreach ($game->comments as $comment)
                                         <blockquote class="user d-flex flex-row blockquote">
                                             <small class="font-weight-bold text-primary">{{ $comment->user->name }}</small>&nbsp;
@@ -202,8 +202,8 @@
                                         <hr />
                                     @endforeach
                                 @else
-                                    <p class="no-comments">No Comments Yet</p>
-                                @endif
+                                @endif --}}
+                                <p class="no-comments">No Chats Yet</p>
                             </div>
                             {{-- Add Comment --}}
                             <div class="add-comment mb-3">
@@ -251,14 +251,16 @@
                 },
                 success: function(res) {
                     console.log(res);
+                    result = res.data;
                     var _html = '<blockquote class="user d-flex flex-row blockquote">\
-                        <small class="font-weight-bold text-primary">james_olesenn</small>\
-                                                                        <small class="mb-0">' + comment + '</small>\
+                        <small class="font-weight-bold text-primary">'+ result.user +'</small>: \
+                                                                        <small class="mb-0">' + result.comment + '</small> \
+                                                                        <small class="mb-0">(' + result.time + ')</small>\
                                                                         </blockquote><hr/>';
                     if (res.bool == true) {
                         $(".comments").append(_html);
                         $(".comment").val('');
-                        $(".comment-count").text($('blockquote').length);
+                        // $(".comment-count").text($('blockquote').length);
                         $(".no-comments").hide();
                     }
                     vm.text('Save').removeClass('disabled');

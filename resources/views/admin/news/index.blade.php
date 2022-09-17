@@ -18,8 +18,9 @@
                             <th scope="col" width="5%">Title</th>
                             {{-- <th scope="col" width="10%">Username</th> --}}
                             <th scope="col" width="10%">Image</th>
+                            <th cope="col" width="10%">Created By</th>
 
-                            <th scope="col" width="10%">Description</th>
+                            {{-- <th scope="col" width="10%">Description</th> --}}
                             <th scope="col" width="1%" colspan="3">Action</th>
                         </tr>
                     </thead>
@@ -28,10 +29,11 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $new->title }}</td>
-                                <td> <img src="{{asset('assets/uploads/'.$new->image)}}" width="70%;" height="50%;;" alt="image">
+                                <td> <img src="{{asset('assets/uploads/'.$new->image)}}" width="30%;" height="20%;" alt="image">
                                               
                                 </td>
-                                <td>{{ $new->description }}</td>
+                                <td>{{ $new->user->name }}</td>
+                                {{-- <td>{{ $new->description }}</td> --}}
 
                                 <td>
                                     <a class="btn btn-info" href="{{ route('news.show', $new->id) }}">Show</a>

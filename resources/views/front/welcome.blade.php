@@ -17,10 +17,10 @@
     <script>
         var user = "{{ Auth::user() ? true : false }}";
         if(user){
-           $('#myVideoOverlay').hide(); 
+           $('.myVideoOverlay').hide(); 
         }
         $(function() {
-            $('#myVideoOverlay').click(function(e) {
+            $('.myVideoOverlay').click(function(e) {
                 e.preventDefault();
                 if (!user) {
                     alert('You have to  login first!');

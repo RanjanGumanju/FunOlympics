@@ -19,7 +19,7 @@
                             <a href="{{ route('high-lights.detail', $item->id) }}">
                                 <h3 class="name text-primary">{{ $item->title }}</h3>
                             </a>
-                            <h4 class="title">{{ $item->description_excerpt }}</h4>
+                            {{-- <h4 class="title">{{ $item->description_excerpt }}</h4> --}}
                         </div>
                     </div>
                 </div>
@@ -27,3 +27,4 @@
         </div>
     </div>
 </section>
+
