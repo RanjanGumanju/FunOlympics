@@ -78,10 +78,8 @@
                     {{-- <div class="row gx-3"> --}}
                     <div class="media d-flex justify-content-center">
                         <img src="{{ asset('assets/uploads/' . $new->image) }}" alt="" class=""
-                        style="width:100%; height:20%">
+                        style="width:50%;">
                         <div class="media-body">
-                          
-
                         </div>
                     </div>
 

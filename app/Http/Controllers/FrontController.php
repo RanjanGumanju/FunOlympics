@@ -14,8 +14,10 @@ class FrontController extends Controller
         //test
         $news = News::take(2)->get();
         $games = Game::take(3)->latest()->get();
+        $highlights = Highlight::take(4)->latest()->get();
 
-        return view('front.welcome', compact('news', 'games'));
+
+        return view('front.welcome', compact('news', 'games', 'highlights'));
     }
 
     public function liveMatching()
@@ -29,7 +31,6 @@ class FrontController extends Controller
     {
         $game = Game::findOrFail($id);
         return view('front.live-match-detail', compact('game'));
-        
     }
 
     public function newsList()
@@ -55,5 +56,4 @@ class FrontController extends Controller
         $highlight = Highlight::findOrFail($id);
         return view('front.highlights-detail', compact('highlight'));
     }
-
 }

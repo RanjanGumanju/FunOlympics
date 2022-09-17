@@ -20,9 +20,11 @@
   <div class="mask" style="">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="text-white">
-        <h1 class="mb-3">Welcome to Fun Olympics</h1>
-        <h4 class="mb-3 text-dark">Accumsan fames, lobortis labore sint incidunt augue sem velit maxime aliquet corporis commodi rutrum purus sem nulla occaecat mollitia vero dignissimos per quisque hendrerit, ipsum totam! Per porttitor illo. Facere, aliquet auctor montes architecto cubilia laboriosam consequatur laoreet etiam justo magni habitasse! Convallis veniam quod mus nonummy fugiat? Ante doloremque.</h4>
-        {{-- <a class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a> --}}
+        <h1 class="mb-3">Welcome to Fun Olympic Games 2022</h1>
+        <h2 class="mb-3 text-white">Games Wide Open</h2>
+        <hr>
+          <h3>Sign in to Fun Olympic Games & watch all the live streaming, match-highlights, news and blogs..</h3>
+
       </div>
     </div>
   </div>
