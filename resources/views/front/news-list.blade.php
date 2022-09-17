@@ -7,7 +7,7 @@
             @foreach ($news as $new)
                 <div class="col-sm-6 col-lg-6">
 
-                    <div class="property-box  property-box-1 d-flex ">
+                    <div class="property-box  property-box-1 d-flex bg-dark">
                         <div class="img-box" style="overflow: hidden;">
                             <a href="{{ route('front.news.detail',$new->id) }}">
                                 <img src="{{ asset('assets/uploads/' . $new->image) }}" alt="" class="img-fluid"

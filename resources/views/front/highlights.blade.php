@@ -170,10 +170,13 @@
                         <div class="card profile-card-1">
                             <img src="{{ asset('assets/uploads/' . $item->image) }}" alt="profile-sample1"
                                 class="background" />
-                            <img src="{{ asset('assets/uploads/' . $item->image) }}" alt="profile-image" class="profile" />
-                            <div class="card-content" style="color: #131313">
-                                <h2>{{ $item->title }}</h3>
-                            </div>
+                            <a href="{{ route('high-lights.detail',$item->id) }}">
+                                <img src="{{ asset('assets/uploads/' . $item->image) }}" alt="profile-image"
+                                    class="profile" />
+                                <div class="card-content" style="color: #131313">
+                                    <h2>{{ $item->title }}</h3>
+                                </div>
+                            </a>
                         </div>
                         {{-- <p class="mt-3 w-100 float-left text-center"><strong>Basic Profile Card</strong></p> --}}
                     </div>
@@ -181,7 +184,6 @@
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('scripts')

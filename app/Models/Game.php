@@ -19,6 +19,8 @@ class Game extends Model
         'image'
     ];
 
+
+
     public function user()
     {
        return $this->belongsTo(User::class);
@@ -35,8 +37,24 @@ class Game extends Model
         return $embed->getHtml();
     }
 
+    public function getVideoFrontHtmlAttribute()
+    {
+        $embed = Embed::make($this->video_url)->parseUrl();
+
+        if (!$embed)
+            return '';
+
+        $embed->setAttribute(['width' => 650]);
+        return $embed->getHtml();
+    }
+
     public function getDescriptionExcerptAttribute()
     {
         return Str::words($this->description, '20');
+    }
+
+    public function comments()
+    {
+       return $this->hasMany(Comment::class);
     }
 }

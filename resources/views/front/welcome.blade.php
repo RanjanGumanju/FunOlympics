@@ -8,5 +8,7 @@
 @include('layouts.partials.messages')
 
     @include('front.news-list')
+    @include('front.games-list-video')
     @include('front.games-list')
+
 @endsection

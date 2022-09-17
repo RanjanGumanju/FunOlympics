@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Game;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -137,5 +138,24 @@ class GameController extends Controller
     
         return redirect()->route('games.index')
                         ->with('success','Game deleted successfully');
+    }
+
+    public function postComment(Request $request)
+    {
+        $comment = new Comment();
+        $comment->description = $request->comment;
+        $comment->user_id = Auth::id();
+        $comment->game_id = $request->game;
+        $comment->save();
+
+        if($comment){
+            return response()->json([
+                'bool'=>true
+            ]);
+            // return response()->json(['data'=>$comment]);
+
+        }
+
+        // dd($request->all());
     }
 }

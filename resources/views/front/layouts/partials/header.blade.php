@@ -26,7 +26,7 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            {{-- <a class="nav-link  " aria-current="page" href="{{ route('front.index') }}">Home</a> --}}
+                            <a class="nav-link  " aria-current="page" href="{{ route('front.index') }}">Home</a>
                         </li>
 
                         <li class="nav-item">

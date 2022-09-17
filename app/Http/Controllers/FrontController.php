@@ -47,8 +47,13 @@ class FrontController extends Controller
     public function highlights()
     {
         $highlights = Highlight::latest()->get();
-        // dd($highlights);
         return view('front.highlights', compact('highlights'));
+    }
+
+    public function highlightsDetail($id)
+    {
+        $highlight = Highlight::findOrFail($id);
+        return view('front.highlights-detail', compact('highlight'));
     }
 
 }

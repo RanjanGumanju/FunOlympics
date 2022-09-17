@@ -26,6 +26,8 @@ Route::get('/live-match', [App\Http\Controllers\FrontController::class, 'liveMat
 Route::get('/live-match/{id}', [App\Http\Controllers\FrontController::class, 'liveMatchDetail'])->name('front.live.match.detail');
 
 Route::get('/high-lights', [App\Http\Controllers\FrontController::class, 'highlights'])->name('high-lights.index');
+Route::get('/high-lights/{id}', [App\Http\Controllers\FrontController::class, 'highlightsDetail'])->name('high-lights.detail');
+
 
 
 // Route::get('/', function () {
@@ -38,11 +40,16 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::post('game-comment', [App\Http\Controllers\GameController::class, 'postComment'])->name('game.comment');   
+
+
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('games', GameController::class);   
+    Route::resource('games', GameController::class); 
+
     Route::resource('highlights', HighlightController::class);   
     Route::resource('news', NewsController::class);
+
 
 
 

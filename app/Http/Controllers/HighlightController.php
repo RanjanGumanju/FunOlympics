@@ -90,24 +90,29 @@ class HighlightController extends Controller
      * @param  \App\Highlight  $game
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Highlight $game)
+    public function update(Request $request, Highlight $highlight)
     {
-        request()->validate([
+        $validatedData =$request->validate([
             'title' => 'required',
             'description' => 'required',
             'video_url' => 'required',
 
         ]);
+
         $data= $request->all();
         // $data['video_url']=YoutubeID($request->video_url);
         if($request->file('image')){
             $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file->move(public_path('assets/uploads/'), $filename);
-            $data['image'] = $filename;
+            $validatedData['image'] = $filename;
         }
+
+        // dd($validatedData);
+        // dd($highlight);
+
     
-        $game->update($data);
+        $highlight->update($validatedData);
         
         return redirect()->route('highlights.index')
                         ->with('success','Highlight updated successfully');

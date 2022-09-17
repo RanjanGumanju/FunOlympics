@@ -71,19 +71,21 @@
             <div class="row gx-5 gy-5">
                 <div class="d-flex justify-content-between owner-detail my-3">
                     <div class="title">
-                        <h2>{{ $new->title }}</h2>
+                        <h2>{{ $highlight->title }}</h2>
                     </div>
                 </div>
                 <div class="col-lg-12  ">
                     {{-- <div class="row gx-3"> --}}
-                    <div class="media d-flex justify-content-center">
-                        <img src="{{ asset('assets/uploads/' . $new->image) }}" alt="" class=""
-                        style="width:100%; height:20%">
-                        <div class="media-body">
-                          
-
+                        <div class="media d-flex justify-content-center">
+                            <div class="media-body">
+                                {!! $highlight->video_html !!}
+                                {{-- convertYoutube --}}
+                                {{-- <iframe src="http://www.youtube.com/embed/{{ $highlight->video_url }}" width="660" height="415"
+                                    frameborder="0" allowfullscreen="" sandbox="allow-scripts"></iframe> --}}
+                                {{-- <iframe src="{{ convertYoutube($highlight->video_url) }}" width="660" height="415"
+                                        frameborder="0" allowfullscreen="" sandbox="allow-scripts"></iframe> --}}
+                            </div>
                         </div>
-                    </div>
 
                     {{-- </div> --}}
 
@@ -95,7 +97,7 @@
                                 </div>
                                 <div class="col-sm-9 ">
                                     <p class="description">
-                                        {!! $new->description !!}
+                                        {!! $highlight->description !!}
                                     </p>
                                     {{-- <a href="" class="see">see more</a> --}}
                                 </div>
