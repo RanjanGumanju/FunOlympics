@@ -30,7 +30,7 @@
                         </div>
                         </div>
                         <div>
-                            Decription: {{ $game->description }}
+                            Decription: {!! $game->description !!}
                         </div>
                     
                         <div>

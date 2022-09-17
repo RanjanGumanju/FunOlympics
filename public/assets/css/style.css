@@ -2888,6 +2888,7 @@ form h3 {
 }
 
 .property-detail {
+  width: max-content;
   margin-top: 44px !important;
   border-radius: 20px;
   padding: 20px 35px;

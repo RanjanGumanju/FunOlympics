@@ -26,7 +26,7 @@
     <link href="{{ asset('assets/css/sb-admin-2.css') }}" rel="stylesheet">
 
     <style>
-        .login_background{
+        .login_background {
             background-image: url('assets/img/olympic.jpg');
             width: 100%;
             height: 100%;
@@ -59,7 +59,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid @guest  login_background }} @endguest">
+                <div class="container-fluid @guest login_background }} @endguest">
                     <br>
                     @if (Auth::check())
                         <!-- Page Heading -->
@@ -120,7 +120,15 @@
     </script>
 
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea', // change this value according to your HTML
+            plugins: 'table',
+            table_toolbar: ''
+        });
+    </script>
     @yield('scripts')
 </body>
 
