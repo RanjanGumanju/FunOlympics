@@ -23,7 +23,7 @@ class Game extends Model
 
     public function user()
     {
-       return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function getVideoHtmlAttribute()
@@ -33,7 +33,12 @@ class Game extends Model
         if (!$embed)
             return '';
 
-        $embed->setAttribute(['width' => 750]);
+        $embed->setAttribute([
+            'width' => 750,
+            'show_info' => 0,
+            // 'onload' => "resizeIframe(this)",
+            'id' => 'iframe'
+        ]);
         return $embed->getHtml();
     }
 
@@ -55,6 +60,6 @@ class Game extends Model
 
     public function comments()
     {
-       return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 }
