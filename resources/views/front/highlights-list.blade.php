@@ -1,7 +1,7 @@
 <section class="similar">
     <div class="container">
         <div class="d-flex align-items-center justify-content-center py-5" style="color: white;">
-            <h1 class="text-white">High-lights</h1>
+            <h1 class="text-white"> High-lights</h1>
         </div>
 
         <div class="row">

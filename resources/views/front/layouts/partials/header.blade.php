@@ -48,7 +48,7 @@
                         <li class="nav-item">
                             <div class="dropdown">
                                 <a class="btn dropdown-toggle btn btn-success btn-hover btn_a" href="#" role="button"
-                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="font-size:20px">
                                     {{ Auth::user()->name }}
                                 </a>
 
