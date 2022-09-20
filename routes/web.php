@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\NewsController;
@@ -23,6 +24,7 @@ Route::get('/news-list', [App\Http\Controllers\FrontController::class, 'newsList
 Route::get('/news-list/{id}', [App\Http\Controllers\FrontController::class, 'newsDetail'])->name('front.news.detail');
 
 Route::get('/live-match', [App\Http\Controllers\FrontController::class, 'liveMatching'])->name('front.live.match');
+Route::get('/front-blogs', [App\Http\Controllers\FrontController::class, 'bloglist'])->name('bloglist');
 Route::get('/live-match/{id}', [App\Http\Controllers\FrontController::class, 'liveMatchDetail'])->name('front.live.match.detail');
 
 Route::get('/high-lights', [App\Http\Controllers\FrontController::class, 'highlights'])->name('high-lights.index');
@@ -43,6 +45,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('games', GameController::class);   
     Route::resource('highlights', HighlightController::class);   
     Route::resource('news', NewsController::class);
+    Route::resource('blogs', BlogController::class);
 
 
 
