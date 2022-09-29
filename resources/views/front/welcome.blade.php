@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    @include('layouts.partials.messages')
+    {{-- @include('layouts.partials.messages') --}}
 
     @include('front.news-list')
     @include('front.highlights-list')

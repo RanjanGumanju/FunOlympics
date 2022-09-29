@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\News;
 use App\Models\Game;
 use App\Models\User;
@@ -30,12 +31,14 @@ class HomeController extends Controller
 
         $user=Auth::user();
         if($user->hasRole('user')){
-            return redirect()->route('front.live.match');
+            return redirect()->route('front.live.match')->with('sucess','User login succesfully');
 
         }
         $data['users']=User::role('user')->count();
         $data['games']=Game::count();
         $data['news']=News::count();
+        $data['blogs']=Blog::count();
+
 
         // dd($user->getRoleClass()->toArray());
         // dd($data);

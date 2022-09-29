@@ -80,7 +80,6 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        // dd('hi');
         return view('admin.blogs.edit',compact('blog'));
     }
 

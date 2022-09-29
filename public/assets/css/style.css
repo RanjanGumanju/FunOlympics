@@ -3298,7 +3298,7 @@ form h3 {
   background-color: #026936;
   color: #fff;
 }
-
+/* 
 .toast-header {
   background-color: #EAF3EE;
 }
@@ -3312,6 +3312,13 @@ form h3 {
   bottom: 200px;
   right: 13px;
   z-index: 2222;
+} */
+
+.toast {
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, 0px);
+  z-index: 9999;
 }
 
 .form-check-input:checked {
@@ -4567,7 +4574,9 @@ body {
   background-color: #f7f5ec;
 }
 
-.ytp-chrome-controls  {
+.media-body iframe .ytp-chrome-controls  {
   display: none !important;
 }
+
+
 

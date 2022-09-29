@@ -123,7 +123,7 @@ class GameController extends Controller
         $game->update($data);
 
         return redirect()->route('games.index')
-            ->with('success', 'Game updated successfully');
+            ->with('info', 'Game updated successfully');
     }
 
     /**
@@ -137,7 +137,7 @@ class GameController extends Controller
         $game->delete();
 
         return redirect()->route('games.index')
-            ->with('success', 'Game deleted successfully');
+            ->with('error', 'Game deleted successfully');
     }
 
     public function postComment(Request $request)

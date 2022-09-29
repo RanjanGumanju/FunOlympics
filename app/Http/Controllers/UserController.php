@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::orderBy('id', 'DESC')->paginate(5);
+        $users = User::orderBy('id', 'DESC')->get();
         return view('admin.users.index', compact('users'));
         // ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -121,12 +121,12 @@ class UserController extends Controller
 
         if (Auth::user()->HasRole('user')) {
             return redirect()->route('front.index')
-                ->with('success', 'Profile updated successfully');
+                ->with('info', 'Profile updated successfully');
         }
 
 
         return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+            ->with('info', 'User updated successfully');
     }
 
     /**
@@ -139,6 +139,6 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('users.index')
-            ->with('success', 'User deleted successfully');
+            ->with('error', 'User deleted successfully');
     }
 }

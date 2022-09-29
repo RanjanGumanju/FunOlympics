@@ -4,7 +4,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="mt-2">
-                @include('layouts.partials.messages')
+                {{-- @include('layouts.partials.messages') --}}
             </div>
             <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right">Add new user</a>
             {{-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> --}}
@@ -61,7 +61,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex">
-                    {!! $users->links() !!}
+                    {{-- {!! $users->links() !!} --}}
                 </div>
             </div>
         </div>

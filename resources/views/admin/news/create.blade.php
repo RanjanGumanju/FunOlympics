@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('layouts.partials.messages')
+    {{-- @include('layouts.partials.messages') --}}
     <div class="row">
         <div class="col-lg-7">
             <div class="card">

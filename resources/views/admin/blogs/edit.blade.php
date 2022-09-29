@@ -2,7 +2,7 @@
 
 
 @section('content')
-    @include('layouts.partials.messages')
+    {{-- @include('layouts.partials.messages') --}}
 
     <div class="card">
         <div class="card-body">

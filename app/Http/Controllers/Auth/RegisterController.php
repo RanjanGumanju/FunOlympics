@@ -91,7 +91,7 @@ class RegisterController extends Controller
         \Mail::to($user->email)->send(new \App\Mail\SendMail($details));
 
         // Session::flash('success', 'Succesfully registered'); 
-        // return redirect()->back()->with('message','User registered Successfully');
+        return redirect()->back()->with('success','User registered Successfully');
         // dd($user);
     }
 }
