@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Game;
 use App\Models\Highlight;
 use App\Models\News;
@@ -25,6 +26,13 @@ class FrontController extends Controller
         $games = Game::latest()->get();
 
         return view('front.live-match', compact('games'));
+    }
+
+    public function bloglist()
+    {
+        $blog = Blog::latest()->get();
+
+        return view('front.blog-list', compact('blog'));
     }
 
     public function liveMatchDetail($id)
