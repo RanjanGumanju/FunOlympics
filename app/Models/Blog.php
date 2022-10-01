@@ -13,7 +13,7 @@ class Blog extends Model
 
     public function getDescriptionExcerptAttribute()
     {
-        return Str::words($this->description, '20');
+        return Str::words($this->description, '2000');
     }
     
 }
