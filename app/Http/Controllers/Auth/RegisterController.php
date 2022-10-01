@@ -88,10 +88,12 @@ class RegisterController extends Controller
             'body' => 'You have been registered'
         ];
        
-        \Mail::to($user->email)->send(new \App\Mail\SendMail($details));
+        // \Mail::to($user->email)->send(new \App\Mail\SendMail($details));
 
         // Session::flash('success', 'Succesfully registered'); 
-        return redirect()->back()->with('success','User registered Successfully');
+        $this->guard()->logout();
+
+        return redirect()->route('front.index')->with('success','User registered Successfully');
         // dd($user);
     }
 }
