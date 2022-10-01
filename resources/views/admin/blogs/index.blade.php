@@ -19,7 +19,7 @@
                             {{-- <th scope="col" width="10%">Username</th> --}}
                             <th scope="col" width="10%">Image</th>
 
-                            <th scope="col" width="10%">Description</th>
+                            <!-- <th scope="col" width="10%">Description</th> -->
                             <th scope="col" width="1%" colspan="3">Action</th>
                         </tr>
                     </thead>
@@ -31,7 +31,7 @@
                                 <td> <img src="{{asset('assets/uploads/'.$new->image)}}" width="70%;" height="50%;;" alt="image">
                                               
                                 </td>
-                                <td>{{ $new->description }}</td>
+                                <!-- <td>{{ $new->description }}</td> -->
 
                                 <td>
                                     <a class="btn btn-info" href="{{ route('blogs.show', $new->id) }}">Show</a>

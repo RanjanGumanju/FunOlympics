@@ -23,13 +23,13 @@
                             <h6 class="pt-2">{{ $new->title }}</h6>
                             <span class="location text-white" style="font-weight:200px"> {!! $new->description_excerpt !!}</span> <br>
 
-                            <div class="price d-flex justify-content-between">
+                            <!-- <div class="price d-flex justify-content-between">
                                 <a class="property-price d-flex" href="{{ route('front.news.detail',$new->id) }}">
 
                                     <h5> Read More..</h5>
                                 </a>
 
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 

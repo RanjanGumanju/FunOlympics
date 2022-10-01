@@ -3313,13 +3313,13 @@ form h3 {
   right: 13px;
   z-index: 2222;
 } */
-
+/* 
 .toast {
   left: 50%;
   position: fixed;
   transform: translate(-50%, 0px);
   z-index: 9999;
-}
+} */
 
 .form-check-input:checked {
   background-color: #026936 !important;
