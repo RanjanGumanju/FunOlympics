@@ -28,7 +28,8 @@
                             <div class="mb-3">
                                 <div class="form-group">
                                     <strong>Description:</strong>
-                                    {!! Form::textarea('description', null, ['placeholder' => 'Description', 'class' => 'form-control']) !!}
+                                    {!! Form::textarea('description', null, ['placeholder' => 'Description', 'class' => 'form-control'  , 'id' => 'editor']) !!}
+                                    {{-- {!! Form::textarea('description', null, ['placeholder' => 'Description', 'class' => 'form-control']) !!} --}}
 
                                 </div>
                             </div>

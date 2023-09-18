@@ -125,16 +125,13 @@
     </script>
 
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-    <script type="text/javascript">
-        tinymce.init({
-            selector: 'textarea', // change this value according to your HTML
-            plugins: 'table',
-            table_toolbar: ''
-        });
-    </script>
 
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+<script type="text/javascript">
+CKEDITOR.replace('editor');
+</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
