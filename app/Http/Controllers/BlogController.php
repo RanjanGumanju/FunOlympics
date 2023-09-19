@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 class BlogController extends Controller
 {
     /**
@@ -27,7 +28,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        $categories =Category::where('model','blog')->get();
+        return view('admin.blogs.create',compact('categories'));
     }
 
     /**
@@ -80,7 +82,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return view('admin.blogs.edit',compact('blog'));
+        $categories =Category::where('model','blog')->get();
+        return view('admin.blogs.edit',compact('blog','categories'));
     }
 
     /**
@@ -121,4 +124,15 @@ class BlogController extends Controller
         return redirect()->route('blogs.index')
                         ->with('success','Blogs deleted successfully');
     }
+
+    public function category(Request $request)
+    {
+       
+        $insert = $request->except(['_token']);
+        $slug = Str::slug($request->name);
+        $insert['slug'] = $slug; 
+        Category::create($insert);
+    }
+
+    
 }

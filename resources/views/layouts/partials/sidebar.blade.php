@@ -107,6 +107,23 @@
         </div>
     </li>
 
+    
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategorys"
+            aria-expanded="true" aria-controls="collapseCategorys">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Category</span>
+        </a>
+        <div id="collapseCategorys" class="collapse" aria-labelledby="Categorylist"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
+                <a class="collapse-item" href="{{ route('Category.create') }}">Create</a>
+                <a class="collapse-item" href="{{ route('Category.index') }}">List</a>
+            </div>
+        </div>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews"
             aria-expanded="true" aria-controls="collapseNews">

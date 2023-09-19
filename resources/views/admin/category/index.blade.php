@@ -26,25 +26,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($news as $i => $new)
+                        @foreach ($categories as $i => $new)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $new->title }}</td>
-                                <td> <img src="{{asset('assets/uploads/'.$new->image)}}" width="70%;" height="50%;;" alt="image">
+                                <td>{{ $new->name }}</td>
+                                <td>
+                                     {{-- <img src="{{asset('assets/uploads/'.$new->image)}}" width="70%;" height="50%;;" alt="image"> --}}
                                               
                                 </td>
                                 <td>{{ $new->description }}</td>
-                                <td>{{ $new->category->name ?? '-' }}</td>
+                                {{-- <td>{{ $new->category->name ?? '-' }}</td> --}}
 
 
-                                <td>
+                                {{-- <td>
                                     <a class="btn btn-info" href="{{ route('blogs.show', $new->id) }}">Show</a>
                                 </td>
                                 <td>
                                     <a class="btn btn-primary" href="{{ route('blogs.edit', $new->id) }}">Edit</a>
-                                </td>
+                                </td> --}}
                                 <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['blogs.destroy', $new->id], 'style' => 'display:inline']) !!}
+                                    
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['Category.destroy', $new->id], 'style' => 'display:inline']) !!}
                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                     {!! Form::close() !!}
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\NewsController;
@@ -41,6 +42,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('delet', [App\Http\Controllers\CategoryController::class, 'delet'])->name('category.delet');   
+
 Route::group(['middleware' => ['auth']], function() {
     Route::post('game-comment', [App\Http\Controllers\GameController::class, 'postComment'])->name('game.comment');   
 
@@ -51,7 +54,17 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('highlights', HighlightController::class);   
     Route::resource('news', NewsController::class);
+
+    Route::post('blogs-category', [App\Http\Controllers\BlogController::class, 'category'])->name('blogs.category');   
+    
+
     Route::resource('blogs', BlogController::class);
+
+    Route::resource('Category', CategoryController::class);
+    Route::get('delet', [App\Http\Controllers\CategoryController::class, 'delet'])->name('category.delet');   
+
+
+
 
 
 

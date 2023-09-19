@@ -62,4 +62,11 @@ class Game extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+        // Relation
+        public function category()
+        {
+            return $this->belongsTo(Category::class, 'category_id');
+        }
+    
 }
