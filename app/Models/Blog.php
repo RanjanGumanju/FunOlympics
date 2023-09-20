@@ -36,6 +36,9 @@ class Blog extends Model implements HasMedia
         return isset($this->image) ? url('storage/' . $this->image) : null;
     }
 
+
+
+    
     public function getImageAttribute($attribute)
     {
         if (isset($attribute)) {
