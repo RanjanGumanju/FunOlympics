@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 class BlogController extends Controller
 {
     /**
@@ -17,7 +18,6 @@ class BlogController extends Controller
     public function index()
     {
         $news = Blog::latest()->get();
-      
         return view('admin.blogs.index',compact('news'));
     }
 
@@ -51,14 +51,14 @@ class BlogController extends Controller
         $insert = $request->except(['_token']);
         $insert['user_id']=Auth::user()->id;
 
-           if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('assets/uploads/'), $filename);
-            $insert['image'] = $filename;
-        }
-        Blog::create($insert);
-    
+        //    if($request->file('image')){
+        //     $file= $request->file('image');
+        //     $filename= date('YmdHi').$file->getClientOriginalName();
+        //     $file->move(public_path('assets/uploads/'), $filename);
+        //     $insert['image'] = $filename;
+        // }
+        $blog = Blog::create($insert);
+        $this->uploadImage($blog);
         return redirect()->route('blogs.index')
                         ->with('success','Blogs created successfully.');
     }
@@ -103,12 +103,13 @@ class BlogController extends Controller
         ]);
     
         $blog->update($request->all());
-        if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file->move(public_path('assets/img/'), $filename);
-            $News['image'] = $filename;
-        }
+        // if($request->file('image')){
+        //     $file= $request->file('image');
+        //     $filename= date('YmdHi').$file->getClientOriginalName();
+        //     $file->move(public_path('assets/img/'), $filename);
+        //     $News['image'] = $filename;
+        // }
+        $this->uploadImage($blog);
         return redirect()->route('blogs.index')
                         ->with('success','Blogs updated successfully');
     }
@@ -125,14 +126,26 @@ class BlogController extends Controller
                         ->with('success','Blogs deleted successfully');
     }
 
+
+
+
     public function category(Request $request)
     {
-       
         $insert = $request->except(['_token']);
         $slug = Str::slug($request->name);
         $insert['slug'] = $slug; 
         Category::create($insert);
     }
 
+        // Upload Image
+    protected function uploadImage(Blog $blog){
+        if (request()->has('image')) {
+            $blog->update([
+                'image' => request()->image->store('website/post', 'public'),
+            ]);
+            $image = Image::make(request()->file('image')->getRealPath());
+            $image->save(public_path('storage/' . $blog->getRawOriginal('image')));
+        }
+    }
     
 }

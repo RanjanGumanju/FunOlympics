@@ -16,7 +16,7 @@
                 <div class="mb-3">
                     <label class="form-label">Image</label>
                     <input type="file" name="image" >
-                    <img src="{{asset('assets/uploads/'.$blog->image)}}" width="70px;" height="70px;" alt="pic">
+                    <img src="{{$blog->image}}" width="70px;" height="70px;" alt="pic">
                 </div>
                 <div class="mb-3">
                     <div class="form-group">

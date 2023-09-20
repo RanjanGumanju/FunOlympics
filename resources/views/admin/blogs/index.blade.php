@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $new->title }}</td>
-                                <td> <img src="{{asset('assets/uploads/'.$new->image)}}" width="70%;" height="50%;;" alt="image">
+                                <td> <img src="{{$new->image}}" width="70%;" height="50%;;" alt="image">
                                               
                                 </td>
                                 <td>{{ $new->description }}</td>

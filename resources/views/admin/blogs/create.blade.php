@@ -38,7 +38,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <div class="form-group">
                                     <strong>Category:</strong>
                                     <select class="form-control" name="category_id">
@@ -52,7 +52,7 @@
                                     </select>
 
                                 </div>
-                            </div>
+                            </div> --}}
                  
 
                             <button type="submit" class="btn btn-primary">Save</button>
@@ -68,7 +68,7 @@
 
 
         </div>
-        <div class="col-md-5">
+        {{-- <div class="col-md-5">
             <form method="POST" action="{{ route('blogs.category') }}" enctype="multipart/form-data">
 
                 @csrf
@@ -83,10 +83,10 @@
 
 
 
-                {{-- Str::slug($request->name) --}}
+              
                 <button type="submit" class="btn btn-primary">Save</button>
               
             </form>
-        </div>
+        </div> --}}
     </div>
 @endsection
